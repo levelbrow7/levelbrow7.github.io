@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中国tk联盟-全球供应链协同与跨境贸易综合服务平台</title>
+    <meta name="description" content="中国tk联盟致力于联接全球供应链资源，为跨境贸易企业提供一站式协同服务。涵盖联盟资讯、行业热点、企业服务、市场趋势与操作指南，助力中国企业高效出海。">
+    <meta name="keywords" content="中国tk联盟,供应链,跨境贸易,外贸综合服务,企业出海,行业联盟,贸易协同">
+    <style>
+        /* ===== 全局重置与基础 ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+            background-color: #f5f7fa;
+            color: #1f2d3d;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        ul, ol {
+            list-style: none;
+        }
+        img {
+            max-width: 100%;
+            display: block;
+        }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===== 顶部信息条 ===== */
+        .top-bar {
+            background-color: #0b2a4a;
+            color: rgba(255,255,255,0.85);
+            font-size: 13px;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .top-bar a {
+            color: #ffffff;
+            opacity: 0.9;
+            transition: opacity 0.2s;
+        }
+        .top-bar a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        /* ===== 页眉 Logo 与主导航 ===== */
+        .header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-main {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 0;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .logo-icon {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(145deg, #0f4c81, #1a6fb0);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-weight: 800;
+            font-size: 20px;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 10px rgba(15,76,129,0.2);
+        }
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: #0b2a4a;
+            letter-spacing: 0.5px;
+        }
+        .logo-text span {
+            color: #d97706;
+            font-weight: 800;
+        }
+        .logo-sub {
+            font-size: 12px;
+            color: #5b6b7c;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+
+        .main-nav ul {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+        .main-nav a {
+            font-size: 16px;
+            font-weight: 500;
+            color: #2c3e50;
+            padding: 6px 0;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s, color 0.2s;
+        }
+        .main-nav a:hover,
+        .main-nav a.active {
+            color: #0f4c81;
+            border-bottom-color: #d97706;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: #f0f4f8;
+            border-radius: 40px;
+            padding: 6px 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .search-box input {
+            border: none;
+            background: transparent;
+            padding: 6px 4px;
+            font-size: 14px;
+            width: 180px;
+            outline: none;
+            color: #1e293b;
+        }
+        .search-box button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            color: #0f4c81;
+            padding: 4px 0 0 8px;
+        }
+
+        /* ===== Hero 横幅 ===== */
+        .hero {
+            background: linear-gradient(135deg, #0b2a4a 0%, #123c66 55%, #1a5a8a 100%);
+            color: #ffffff;
+            padding: 72px 0 88px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            right: -80px;
+            top: -40px;
+            width: 400px;
+            height: 400px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 50%;
+        }
+        .hero .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 2;
+        }
+        .hero-copy {
+            flex: 1 1 500px;
+        }
+        .hero-copy h1 {
+            font-size: 42px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        .hero-copy h1 .highlight {
+            color: #fbbf24;
+            border-bottom: 3px solid rgba(251,191,36,0.5);
+        }
+        .hero-copy p {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-bottom: 32px;
+        }
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(4px);
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 24px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.25s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        .btn-primary {
+            background: #d97706;
+            color: #ffffff;
+            border-color: #d97706;
+        }
+        .btn-primary:hover {
+            background: #b85e00;
+            border-color: #b85e00;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(217,119,6,0.3);
+        }
+        .btn-outline-light {
+            background: transparent;
+            color: #ffffff;
+            border-color: rgba(255,255,255,0.6);
+        }
+        .btn-outline-light:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: #ffffff;
+        }
+        .hero-stats {
+            flex: 1 1 300px;
+            display: flex;
+            gap: 28px;
+            justify-content: center;
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(8px);
+            padding: 32px 24px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .stat-item {
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 36px;
+            font-weight: 800;
+            color: #fbbf24;
+        }
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-top: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        /* ===== 核心价值 / 服务板块 ===== */
+        .section {
+            padding: 72px 0;
+        }
+        .section-alt {
+            background: #ffffff;
+        }
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 48px;
+        }
+        .section-header h2 {
+            font-size: 34px;
+            font-weight: 700;
+            color: #0b2a4a;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+        .section-header p {
+            color: #5b6b7c;
+            font-size: 17px;
+        }
+        .section-divider {
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #d97706, #fbbf24);
+            margin: 16px auto 24px;
+            border-radius: 2px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+        }
+        .service-card {
+            background: #ffffff;
+            padding: 32px 24px;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+            border-top: 4px solid #0f4c81;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(11,42,74,0.12);
+        }
+        .service-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: #d97706;
+        }
+        .service-card h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+            color: #0b2a4a;
+        }
+        .service-card p {
+            color: #475569;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        /* ===== 联盟动态 / 资讯列表 ===== */
+        .news-section {
+            background: #f0f4f8;
+        }
+        .news-layout {
+            display: grid;
+            grid-template-columns: 1.6fr 1fr;
+            gap: 40px;
+        }
+        .featured-news {
+            background: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+        }
+        .featured-news-content {
+            padding: 28px;
+        }
+        .news-tag {
+            display: inline-block;
+            background: #0f4c81;
+            color: #ffffff;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .featured-news h3 {
+            font-size: 26px;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+        .featured-news p {
+            color: #475569;
+            margin-bottom: 20px;
+        }
+        .news-meta {
+            display: flex;
+            gap: 16px;
+            color: #94a3b8;
+            font-size: 13px;
+        }
+        .news-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .news-item {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 20px 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            transition: background 0.2s;
+        }
+        .news-item:hover {
+            background: #f8fafc;
+        }
+        .news-item h4 {
+            font-size: 17px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #1e293b;
+        }
+        .news-item p {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        /* ===== 数据与趋势 ===== */
+        .trend-section {
+            background: #ffffff;
+        }
+        .trend-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+        }
+        .trend-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 28px 20px;
+            text-align: center;
+            transition: border-color 0.3s;
+        }
+        .trend-card:hover {
+            border-color: #0f4c81;
+        }
+        .trend-value {
+            font-size: 32px;
+            font-weight: 800;
+            color: #0f4c81;
+        }
+        .trend-label {
+            font-size: 15px;
+            color: #475569;
+            margin-top: 8px;
+        }
+        .trend-desc {
+            font-size: 13px;
+            color: #94a3b8;
+            margin-top: 6px;
+        }
+
+        /* ===== 加入联盟 CTA ===== */
+        .cta-section {
+            background: linear-gradient(120deg, #d97706, #f59e0b);
+            padding: 64px 0;
+            color: #ffffff;
+            text-align: center;
+        }
+        .cta-section h2 {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+        .cta-section p {
+            font-size: 18px;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+        .btn-dark {
+            background: #0b2a4a;
+            border-color: #0b2a4a;
+            color: #ffffff;
+        }
+        .btn-dark:hover {
+            background: #1a3a5c;
+            border-color: #1a3a5c;
+            transform: translateY(-2px);
+        }
+
+        /* ===== FAQ 区 ===== */
+        .faq-section {
+            background: #f0f4f8;
+        }
+        .faq-list {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .faq-item {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 24px 28px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+        }
+        .faq-item h3 {
+            font-size: 19px;
+            color: #0b2a4a;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        .faq-item p {
+            color: #475569;
+        }
+
+        /* ===== 页脚 ===== */
+        .footer {
+            background: #0b1a2b;
+            color: #b0c4d8;
+            padding: 48px 0 24px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 32px;
+            margin-bottom: 40px;
+        }
+        .footer-brand p {
+            margin-top: 16px;
+            font-size: 14px;
+            opacity: 0.8;
+            max-width: 320px;
+        }
+        .footer h4 {
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        .footer-links a {
+            font-size: 14px;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+        .footer-links a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 24px;
+            text-align: center;
+            font-size: 14px;
+            opacity: 0.7;
+        }
+
+        /* ===== 响应式 ===== */
+        @media (max-width: 900px) {
+            .header-main {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .main-nav ul {
+                gap: 16px;
+            }
+            .hero-copy h1 {
+                font-size: 32px;
+            }
+            .news-layout {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 0 16px;
+            }
+            .hero {
+                padding: 48px 0;
+            }
+            .hero-stats {
+                flex-direction: column;
+                width: 100%;
+            }
+            .search-box input {
+                width: 100px;
+            }
+            .section {
+                padding: 48px 0;
+            }
+            .section-header h2 {
+                font-size: 26px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .main-nav ul {
+                flex-direction: column;
+                gap: 8px;
+            }
+            .logo-text {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- 顶部信息条 -->
+<div class="top-bar">
+    <div class="container">
+        <span>欢迎访问中国tk联盟 · 服务全球贸易伙伴</span>
+        <span>热线：400-800-2025（工作日 9:00-18:00）</span>
+    </div>
+</div>
+
+<!-- 页眉 -->
+<header class="header">
+    <div class="container header-main">
+        <div class="logo-area">
+            <div class="logo-icon">TK</div>
+            <div>
+                <div class="logo-text">中国<span>tk</span>联盟</div>
+                <div class="logo-sub">Supply Chain Alliance</div>
+            </div>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#" class="active">首页</a></li>
+                <li><a href="#about">关于联盟</a></li>
+                <li><a href="#services">服务能力</a></li>
+                <li><a href="#news">联盟动态</a></li>
+                <li><a href="#trends">行业趋势</a></li>
+                <li><a href="#faq">常见问题</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <div class="search-box">
+                <input type="text" placeholder="搜索服务或资讯">
+                <button aria-label="搜索">🔍</button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <!-- Hero 横幅 -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-copy">
+                <div class="hero-badge">全球供应链协同服务平台</div>
+                <h1>构建<span class="highlight">中国tk联盟</span><br>跨境贸易新生态</h1>
+                <p>聚合优质供应链资源，提供从采购、物流到合规的一站式协同服务，助力中国企业稳健走向全球市场。</p>
+                <div class="hero-buttons">
+                    <a href="#services" class="btn btn-primary">探索服务</a>
+                    <a href="#join" class="btn btn-outline-light">申请入会</a>
+                </div>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">200+</div>
+                    <div class="stat-label">核心企业会员</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">30+</div>
+                    <div class="stat-label">覆盖国家地区</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">客户满意度</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于联盟简介 -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>关于中国tk联盟</h2>
+                <div class="section-divider"></div>
+                <p>中国tk联盟是由供应链上下游企业、贸易服务商与行业专家共同发起的非营利性协同组织，致力于打破信息壁垒，推动跨境贸易高效流转。</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🌐</div>
+                    <h3>全球网络</h3>
+                    <p>联盟成员分布于全球主要贸易枢纽，与当地商会、物流企业深度合作，为会员提供可靠的海外市场落地支持。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>数据洞察</h3>
+                    <p>定期发布行业报告与市场预警，帮助会员把握政策变化、汇率波动与新兴市场需求，辅助科学决策。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🤝</div>
+                    <h3>资源对接</h3>
+                    <p>通过供需匹配会、企业互访、线上路演等形式，促进上下游协同合作，降低交易成本与信用风险。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🛡️</div>
+                    <h3>合规护航</h3>
+                    <p>联合法律与税务专家，为会员提供国际贸易合规咨询、知识产权保护及争议解决支持服务。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联盟动态资讯 -->
+    <section class="section news-section" id="news">
+        <div class="container">
+            <div class="section-header">
+                <h2>联盟动态与行业洞察</h2>
+                <div class="section-divider"></div>
+                <p>聚焦跨境贸易热点，传递联盟最新活动与政策解读</p>
+            </div>
+            <div class="news-layout">
+                <div class="featured-news">
+                    <div class="featured-news-content">
+                        <span class="news-tag">头条聚焦</span>
+                        <h3>2025年联盟跨境合作峰会将于深圳举办</h3>
+                        <p>峰会以“协同·共赢”为主题，设置主题演讲、供需对接专场与海外市场分析论坛。预计将有超过300家外贸企业及服务商到场，共议新形势下的贸易协作机遇。</p>
+                        <div class="news-meta">
+                            <span>📅 2025年4月18日</span>
+                            <span>📍 深圳国际会展中心</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="news-list">
+                    <div class="news-item">
+                        <h4>东南亚市场采购需求增长迅猛，联盟新增专项对接通道</h4>
+                        <p>根据近期会员反馈，越南、泰国等地对电子配件与机械部件需求旺盛。</p>
+                    </div>
+                    <div class="news-item">
+                        <h4>《跨境供应链合规指引》2025版正式发布</h4>
+                        <p>联盟联合多家律所更新合规指南，涵盖出口管制、数据跨境等热点。</p>
+                    </div>
+                    <div class="news-item">
+                        <h4>第8期“TK贸易学堂”线上直播预约开启</h4>
+                        <p>聚焦跨境电商物流成本优化，邀请资深专家在线答疑。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 服务能力详述 -->
+    <section class="section section-alt" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>全链路服务能力</h2>
+                <div class="section-divider"></div>
+                <p>从市场调研到售后支持，覆盖贸易全流程的关键节点</p>
+            </div>
+            <div class="trend-grid">
+                <div class="trend-card">
+                    <div class="trend-value">01</div>
+                    <div class="trend-label">市场准入咨询</div>
+                    <div class="trend-desc">目标市场政策法规、认证要求、关税结构分析</div>
+                </div>
+                <div class="trend-card">
+                    <div class="trend-value">02</div>
+                    <div class="trend-label">供应商筛选与验厂</div>
+                    <div class="trend-desc">资质审核、产能评估、质量体系核查</div>
+                </div>
+                <div class="trend-card">
+                    <div class="trend-value">03</div>
+                    <div class="trend-label">国际物流方案</div>
+                    <div class="trend-desc">海运/空运/铁路多式联运，仓储与配送优化</div>
+                </div>
+                <div class="trend-card">
+                    <div class="trend-value">04</div>
+                    <div class="trend-label">贸易合规与税务</div>
+                    <div class="trend-desc">贸易条款设计、出口退税辅导、风险规避</div>
+                </div>
+                <div class="trend-card">
+                    <div class="trend-value">05</div>
+                    <div class="trend-label">海外仓配服务</div>
+                    <div class="trend-desc">海外前置仓、一件代发、本地退换货处理</div>
+                </div>
+                <div class="trend-card">
+                    <div class="trend-value">06</div>
+                    <div class="trend-label">数字化对接</div>
+                    <div class="trend-desc">贸易系统API对接、数据同步与可视化看板</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 行业趋势数据 -->
+    <section class="section trend-section" id="trends">
+        <div class="container">
+            <div class="section-header">
+                <h2>2025年跨境贸易关键趋势</h2>
+                <div class="section-divider"></div>
+                <p>基于联盟观察与公开行业信息整理，供会员决策参考</p>
+            </div>
+            <div class="trend-grid">
+                <div class="trend-card">
+                    <div class="trend-value">+18%</div>
+                    <div class="trend-label">东南亚电商进口规模</div>
+                    <div class="trend-desc">RCEP持续深化带动区域贸易活跃</div>
+                </div>
+                <div class="trend-card">
+                    <div class="trend-value">67%</div>
+                    <div class="trend-label">企业采用混合物流模式</div>
+                    <div class="trend-desc">海运+海外仓组合成为主流选择</div>
+                </div>
+                <div class="trend-card">
+                    <div class="trend-value">42%</div>
+                    <div class="trend-label">关注ESG合规要求</div>
+                    <div class="trend-desc">买家对供应链可持续性审查加强</div>
+                </div>
+                <div class="trend-card">
+                    <div class="trend-value">3.1</div>
+                    <div class="trend-label">平均合作海外市场数</div>
+                    <div class="trend-desc">中国企业多市场布局意愿持续提升</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 加入联盟 CTA -->
+    <section class="cta-section" id="join">
+        <div class="container">
+            <h2>成为联盟会员，共享全球贸易资源</h2>
+            <p>无论您是生产制造企业、贸易商、物流服务商还是行业服务机构，中国tk联盟都将为您提供精准的对接与支持。</p>
+            <a href="#" class="btn btn-dark">立即咨询入会</a>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section faq-section" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>常见问题</h2>
+                <div class="section-divider"></div>
+                <p>关于联盟服务与入会的常见疑问</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h3>中国tk联盟的性质是什么？</h3>
+                    <p>中国tk联盟是一个行业协同组织，由跨境贸易相关的企业与机构自愿组成，以共享资源、促进合作为核心目标，不涉及任何政治立场。</p>
+                </div>
+                <div class="faq-item">
+                    <h3>入会需要满足什么条件？</h3>
+                    <p>凡在中华人民共和国境内合法注册的企业或机构，拥有良好的商业信誉且业务与供应链、跨境贸易相关的，均可提交入会申请。经联盟理事会审议通过后即可成为正式会员。</p>
+                </div>
+                <div class="faq-item">
+                    <h3>联盟提供免费服务吗？</h3>
+                    <p>基础行业报告、公开活动及线上咨询为免费服务。深度资源对接、专项咨询及定制化解决方案将根据具体情况收取合理费用，以保障联盟可持续运营。</p>
+                </div>
+                <div class="faq-item">
+                    <h3>如何快速获取海外市场信息？</h3>
+                    <p>会员可通过联盟的月度线上简报、专属微信群以及年度报告获取市场动态。同时，联盟会不定期组织小型闭门分享会，邀请一线从业者交流。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- 页脚 -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="logo-text" style="color:#ffffff;">中国<span style="color:#fbbf24;">tk</span>联盟</div>
+                <p>联接全球供应链，服务中国贸易企业。以协同创造价值，以专业护航出海。</p>
+            </div>
+            <div>
+                <h4>快速导航</h4>
+                <ul class="footer-links">
+                    <li><a href="#about">关于我们</a></li>
+                    <li><a href="#services">核心服务</a></li>
+                    <li><a href="#news">最新动态</a></li>
+                    <li><a href="#join">会员申请</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>资源中心</h4>
+                <ul class="footer-links">
+                    <li><a href="#">行业报告下载</a></li>
+                    <li><a href="#">合规工具包</a></li>
+                    <li><a href="#">物流商名录</a></li>
+                    <li><a href="#">活动回顾</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>联系我们</h4>
+                <ul class="footer-links">
+                    <li><a href="#">邮箱：contact@cntk-alliance.org</a></li>
+                    <li><a href="#">电话：400-800-2025</a></li>
+                    <li><a href="#">地址：上海市浦东新区</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 中国tk联盟（行业协同组织） 保留所有权利 · 非官方机构 · 本网站仅为行业信息交流平台</p>
+        </div>
+    </div>
+</footer>
+
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</body>
+  </html>
