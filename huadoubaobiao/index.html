@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>花都保镖-贴身护卫服务与安全出行指南</title>
+    <meta name="description" content="花都保镖提供专业贴身护卫、私人安保、商务随行保护服务，覆盖活动安保、风险评估与安全出行方案，为您的出行与活动保驾护航。">
+    <meta name="keywords" content="花都保镖,保镖服务,贴身护卫,私人安保,商务随行,活动安保">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background-color: #f7f8fa;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* 页眉 */
+        .site-header {
+            background: #ffffff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            padding: 20px 0;
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            background: #1e3a5f;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        .logo-text {
+            font-size: 26px;
+            font-weight: 700;
+            color: #1e3a5f;
+            letter-spacing: 1px;
+        }
+
+        .logo-text span {
+            color: #b8860b;
+        }
+
+        .header-contact {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #f0f4f8;
+            padding: 8px 16px;
+            border-radius: 30px;
+        }
+
+        .header-contact .phone {
+            font-weight: 600;
+            color: #1e3a5f;
+        }
+
+        .header-contact .badge {
+            background: #b8860b;
+            color: #fff;
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 13px;
+        }
+
+        /* 导航 */
+        .main-nav {
+            background: #1e3a5f;
+            margin-top: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+            padding: 0 12px;
+            min-width: max-content;
+        }
+
+        .nav-list li a {
+            display: block;
+            padding: 14px 24px;
+            color: #eaeef3;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.2s;
+            white-space: nowrap;
+        }
+
+        .nav-list li a:hover,
+        .nav-list li a.active {
+            background: #b8860b;
+            color: #fff;
+        }
+
+        /* 首屏横幅 */
+        .hero {
+            background: linear-gradient(135deg, #1e3a5f 0%, #2a5298 100%);
+            color: #ffffff;
+            padding: 60px 0;
+            margin-top: 24px;
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            right: -80px;
+            top: -80px;
+            width: 260px;
+            height: 260px;
+            background: rgba(184, 134, 11, 0.3);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 720px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 24px;
+        }
+
+        .hero .btn-group {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: #b8860b;
+            color: #fff;
+            padding: 12px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: transform 0.2s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #fff;
+            border: 2px solid #fff;
+            padding: 10px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* 快捷服务卡片 */
+        .quick-services {
+            padding: 50px 0 20px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1e3a5f;
+            margin-bottom: 8px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: #b8860b;
+            margin-top: 8px;
+        }
+
+        .section-sub {
+            color: #6b7a8d;
+            margin-bottom: 32px;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+        }
+
+        .service-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 30px 24px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: box-shadow 0.3s;
+            border-top: 4px solid transparent;
+        }
+
+        .service-card:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            border-top-color: #b8860b;
+        }
+
+        .service-icon {
+            font-size: 40px;
+            margin-bottom: 16px;
+        }
+
+        .service-card h3 {
+            font-size: 20px;
+            color: #1e3a5f;
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            color: #5a6b7c;
+            font-size: 15px;
+        }
+
+        /* 关于我们 */
+        .about-section {
+            padding: 50px 0;
+            background: #fff;
+            margin: 30px 0;
+            border-radius: 12px;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 30px;
+            color: #1e3a5f;
+            margin-bottom: 16px;
+        }
+
+        .about-text p {
+            margin-bottom: 16px;
+            color: #4a5a6a;
+        }
+
+        .about-stats {
+            display: flex;
+            gap: 32px;
+            margin-top: 24px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-num {
+            font-size: 36px;
+            font-weight: 800;
+            color: #b8860b;
+        }
+
+        .stat-label {
+            color: #7b8a9a;
+            font-size: 14px;
+        }
+
+        .about-img {
+            background: #e8edf2;
+            border-radius: 12px;
+            height: 320px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+        }
+
+        /* 服务流程 */
+        .process-section {
+            padding: 40px 0;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .step-item {
+            text-align: center;
+            padding: 24px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .step-num {
+            width: 50px;
+            height: 50px;
+            background: #1e3a5f;
+            color: #fff;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .step-item h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: #1e3a5f;
+        }
+
+        .step-item p {
+            color: #6b7a8d;
+            font-size: 14px;
+        }
+
+        /* 客户案例 */
+        .case-section {
+            background: #fff;
+            padding: 50px 0;
+            border-radius: 12px;
+            margin: 30px 0;
+        }
+
+        .case-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .case-card {
+            border: 1px solid #e5eaf0;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+
+        .case-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .case-img {
+            height: 160px;
+            background: linear-gradient(145deg, #d4dce4, #eef2f6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+        }
+
+        .case-content {
+            padding: 20px;
+        }
+
+        .case-content h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: #1e3a5f;
+        }
+
+        .case-content p {
+            color: #5a6b7c;
+            font-size: 14px;
+        }
+
+        .case-tag {
+            display: inline-block;
+            background: #eef3f8;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            color: #1e3a5f;
+            margin-top: 12px;
+        }
+
+        /* 常见问题 */
+        .faq-section {
+            padding: 40px 0;
+        }
+
+        .faq-list {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: #fff;
+            border-radius: 8px;
+            padding: 20px 28px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+            border-left: 4px solid #b8860b;
+        }
+
+        .faq-item h3 {
+            font-size: 18px;
+            color: #1e3a5f;
+            margin-bottom: 6px;
+        }
+
+        .faq-item p {
+            color: #5a6b7c;
+            font-size: 15px;
+        }
+
+        /* 联系与预约 */
+        .contact-section {
+            background: #1e3a5f;
+            color: #fff;
+            padding: 50px 0;
+            border-radius: 12px;
+            margin: 30px 0;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .contact-info h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            margin-bottom: 12px;
+            opacity: 0.9;
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 24px;
+            border-radius: 10px;
+        }
+
+        .contact-form input,
+        .contact-form textarea,
+        .contact-form select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        .contact-form button {
+            background: #b8860b;
+            color: #fff;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .contact-form button:hover {
+            background: #a0750a;
+        }
+
+        /* 页脚 */
+        .site-footer {
+            background: #1a2a3a;
+            color: #aab8c5;
+            padding: 40px 0 20px;
+            margin-top: 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 32px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 16px;
+            font-size: 18px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-col ul li a {
+            color: #aab8c5;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-col ul li a:hover {
+            color: #b8860b;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #2a3a4a;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            .hero {
+                padding: 40px 0;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-img {
+                height: 200px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-stats {
+                flex-wrap: wrap;
+                gap: 16px;
+            }
+
+            .stat-num {
+                font-size: 28px;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            .logo-text {
+                font-size: 22px;
+            }
+
+            .nav-list li a {
+                padding: 12px 16px;
+            }
+
+            .btn-group {
+                flex-direction: column;
+            }
+
+            .btn-primary,
+            .btn-outline {
+                text-align: center;
+            }
+        }
+    </style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="header-inner">
+                <div class="logo-area">
+                    <div class="logo-icon">花</div>
+                    <div class="logo-text">花都保镖<span>·</span>护卫</div>
+                </div>
+                <div class="header-contact">
+                    <span>📞 全国服务热线</span>
+                    <span class="phone">400-800-6600</span>
+                    <span class="badge">24h 响应</span>
+                </div>
+            </div>
+        </div>
+        <nav class="main-nav">
+            <div class="container">
+                <ul class="nav-list">
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">贴身护卫</a></li>
+                    <li><a href="#">商务随行</a></li>
+                    <li><a href="#">活动安保</a></li>
+                    <li><a href="#">风险评估</a></li>
+                    <li><a href="#">服务团队</a></li>
+                    <li><a href="#">预约咨询</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- 首屏 Hero -->
+        <div class="container">
+            <section class="hero">
+                <div class="hero-content">
+                    <h1>花都保镖 · 专业贴身安全护卫</h1>
+                    <p>无论是商务出行、私人活动还是重要场合，我们提供经验丰富的安保团队和完善的安全保障方案，让您专注事业与生活，远离安全顾虑。</p>
+                    <div class="btn-group">
+                        <a href="#" class="btn-primary">预约安全顾问</a>
+                        <a href="#" class="btn-outline">了解服务详情</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- 核心服务 -->
+        <section class="quick-services">
+            <div class="container">
+                <h2 class="section-title">核心安保服务</h2>
+                <p class="section-sub">根据您的需求定制专属安全方案</p>
+                <div class="service-grid">
+                    <div class="service-card">
+                        <div class="service-icon">🛡️</div>
+                        <h3>私人贴身护卫</h3>
+                        <p>为个人或家庭提供全天候贴身保护，护卫人员经验丰富，具备专业应急处理能力，保障您的日常出行与生活安全。</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🚗</div>
+                        <h3>商务随行保护</h3>
+                        <p>面向企业高管、商务人士的出行保护服务，涵盖商务差旅、重要会议、客户接待等场景，维护您的商业活动安全。</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🎪</div>
+                        <h3>大型活动安保</h3>
+                        <p>为展会、发布会、宴会、体育赛事等提供现场秩序维护、出入口管理、人流疏导等综合安保服务。</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🔍</div>
+                        <h3>安全风险评估</h3>
+                        <p>针对出行路线、居住环境、商务场所进行专业安全评估，提供风险预警与应对策略建议。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 关于花都保镖 -->
+        <section class="about-section">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-text">
+                        <h2>关于花都保镖</h2>
+                        <p>花都保镖是一家专注于高端安保服务的专业机构，核心团队由安保行业资深人士、退役特种兵及安全专家组成。我们以严谨的服务标准、保密原则和客户至上的理念，为众多企业及个人客户提供了可靠的安全保障。</p>
+                        <p>我们深知每一位客户的安全需求都不尽相同，因此提供个性化定制的安保方案，从人员配置、路线规划到应急预案，力求做到细致入微、未雨绸缪。</p>
+                        <div class="about-stats">
+                            <div class="stat-item">
+                                <div class="stat-num">500+</div>
+                                <div class="stat-label">服务案例</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-num">200+</div>
+                                <div class="stat-label">专业护卫</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-num">98%</div>
+                                <div class="stat-label">客户满意度</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-img">
+                        🛡️
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 服务流程 -->
+        <section class="process-section">
+            <div class="container">
+                <h2 class="section-title">服务流程</h2>
+                <p class="section-sub">简单四步，获得专业安保方案</p>
+                <div class="process-steps">
+                    <div class="step-item">
+                        <div class="step-num">1</div>
+                        <h3>需求沟通</h3>
+                        <p>了解您的具体安保需求、使用场景与期望目标</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-num">2</div>
+                        <h3>方案定制</h3>
+                        <p>由安全顾问设计个性化保护方案与人员配置</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-num">3</div>
+                        <h3>人员匹配</h3>
+                        <p>根据场景和需求选派合适的专业护卫人员</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-num">4</div>
+                        <h3>执行保障</h3>
+                        <p>护卫人员全程执行任务，配合应急预案</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 服务场景案例 -->
+        <section class="case-section">
+            <div class="container">
+                <h2 class="section-title">典型服务场景</h2>
+                <p class="section-sub">花都保镖的服务覆盖多种安全需求场景</p>
+                <div class="case-grid">
+                    <div class="case-card">
+                        <div class="case-img">🏢</div>
+                        <div class="case-content">
+                            <h3>企业高管差旅保护</h3>
+                            <p>为高管跨城市出行、商务洽谈提供全程随行保护，提前规划安全路线，协调当地安保资源。</p>
+                            <span class="case-tag">商务出行</span>
+                        </div>
+                    </div>
+                    <div class="case-card">
+                        <div class="case-img">🏠</div>
+                        <div class="case-content">
+                            <h3>私人贴身护卫</h3>
+                            <p>为高净值人士及其家庭提供日常出行、社交活动的贴身保护，注重隐私与谨慎服务。</p>
+                            <span class="case-tag">私人保护</span>
+                        </div>
+                    </div>
+                    <div class="case-card">
+                        <div class="case-img">🎤</div>
+                        <div class="case-content">
+                            <h3>明星活动安保</h3>
+                            <p>为艺人演出、粉丝见面会、商业站台等活动提供现场秩序维护与人员保护服务。</p>
+                            <span class="case-tag">活动安保</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 常见问题 -->
+        <section class="faq-section">
+            <div class="container">
+                <h2 class="section-title">常见问题</h2>
+                <p class="section-sub">关于花都保镖服务，您可能想了解</p>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <h3>Q1：贴身护卫服务适合哪些人群？</h3>
+                        <p>适合有较高安全需求的企业家、公众人物、商务差旅频繁的高管以及注重个人安全的家庭，我们会根据客户的具体情况制定保护方案。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Q2：护卫人员具备哪些专业资质？</h3>
+                        <p>我们的护卫人员均经过严格筛选和专业培训，多数有军警或安保从业背景，掌握防卫控制、急救、风险评估等技能，并定期接受考核。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Q3：如何保障服务过程中的隐私？</h3>
+                        <p>花都保镖与所有客户签署保密协议，对服务内容、行程安排及客户信息严格保密，确保客户隐私不被泄露。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Q4：可以提前多久预约服务？</h3>
+                        <p>常规服务建议提前3-5个工作日预约，以便我们进行人员安排和方案对接；紧急需求可联系客服加急处理。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Q5：服务费用如何计算？</h3>
+                        <p>费用根据服务类型、时长、护卫人员级别及任务风险等因素综合评估，我们会在方案确认后提供明确报价，无隐形消费。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 联系预约 -->
+        <section class="contact-section">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h2>预约安全服务</h2>
+                        <p>如果您需要专业安保服务或有任何安全方面的疑问，欢迎填写右侧表单，我们的安全顾问将尽快与您联系。</p>
+                        <p>📞 服务热线：400-800-6600</p>
+                        <p>📧 邮箱：service@huadubiaobiao.com</p>
+                        <p>🕐 服务时间：7×24小时</p>
+                    </div>
+                    <div class="contact-form">
+                        <input type="text" placeholder="您的称呼">
+                        <input type="tel" placeholder="联系电话">
+                        <select>
+                            <option value="">选择服务类型</option>
+                            <option>私人贴身护卫</option>
+                            <option>商务随行保护</option>
+                            <option>活动安保</option>
+                            <option>风险评估</option>
+                        </select>
+                        <textarea rows="3" placeholder="简要说明您的需求"></textarea>
+                        <button type="button">提交预约申请</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>花都保镖</h4>
+                    <p>专业安保服务提供商，致力于为客户提供安全、可靠、保密的贴身保护与安保解决方案。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>服务项目</h4>
+                    <ul>
+                        <li><a href="#">私人贴身护卫</a></li>
+                        <li><a href="#">商务随行保护</a></li>
+                        <li><a href="#">活动安保服务</a></li>
+                        <li><a href="#">安全风险评估</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">首页</a></li>
+                        <li><a href="#">关于我们</a></li>
+                        <li><a href="#">服务团队</a></li>
+                        <li><a href="#">预约咨询</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系方式</h4>
+                    <ul>
+                        <li>热线：400-800-6600</li>
+                        <li>邮箱：service@huadubiaobiao.com</li>
+                        <li>地址：广州市花都区迎宾大道</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 花都保镖 版权所有 · 安全 · 专业 · 可靠</p>
+            </div>
+        </div>
+    </footer>
+</body>
+                  </html>
